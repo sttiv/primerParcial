@@ -1,19 +1,25 @@
-filename = 'textoAqui.txt'
+texto = """este es un texto el cual deben contar el numero
+de palabras que tiene, deben tener en cuenta,
+que algunas palabras se separa por un punto, y una
+coma, tambien hay que tener en cuenta, que las palabras
+escritas EN MAYUSCULAS y minusculas cuenta como una este. Texto"""
 
+quitar = ",;:.\n!\"'"
+for caracter in quitar:
+    texto = texto.replace(caracter,
+                          "")
 
-try:
-    with open(filename) as f_obj:
-            contens = f_obj.read()
-            print(contens)
-except FileNotFoundError:
-        msg = "Archivo " + filename + " no existe"
-        print( msg )
+texto=texto.lower()
+palabras = texto.split(" ")
 
-else:
-    words = contens.split(" ")
-    diccionario = dict()
+diccionario_frecuencia = {}
 
-    for p in words:
-            diccionario[p] = diccionario.get(p, 0) + 1
-            print(diccionario[p])
-   # print(diccionario)
+for palabra in palabras:
+        if palabra in diccionario_frecuencia:
+                diccionario_frecuencia[palabra] += 1
+        else:
+                diccionario_frecuencia[palabra] = 1
+
+for palabra in diccionario_frecuencia:
+        frecuencia = diccionario_frecuencia[palabra]
+        print(f"La palabra '{palabra}' se repite {frecuencia}")
