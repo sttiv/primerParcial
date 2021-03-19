@@ -2,7 +2,7 @@ texto = """este es un texto el cual deben contar el numero
 de palabras que tiene, deben tener en cuenta,
 que algunas palabras se separa por un punto, y una
 coma, tambien hay que tener en cuenta, que las palabras
-escritas EN MAYUSCULAS y minusculas cuenta como una este. Texto"""
+escritas EN MAYUSCULAS y minusculas cuenta como una este. Texto Texto Texto Texto"""
 
 quitar = ",;:.\n!\"'"
 for caracter in quitar:
@@ -22,4 +22,8 @@ for palabra in palabras:
 
 for palabra in diccionario_frecuencia:
         frecuencia = diccionario_frecuencia[palabra]
-        print(f"La palabra '{palabra}' se repite {frecuencia}")
+
+        if frecuencia == 1:
+                frecuencia += 1
+        else:
+                print(f"La palabra '{palabra}' se repite {frecuencia}")
